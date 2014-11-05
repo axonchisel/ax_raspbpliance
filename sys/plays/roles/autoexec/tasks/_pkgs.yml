@@ -1,0 +1,14 @@
+---
+
+#
+# Package install for appliance mode (kiosk browser).
+#
+
+- name: Ensure kiosk packages are installed
+  apt: state=present name={{ item }}
+  with_items:
+    - unclutter                # hide mouse pointer on inactivity
+    - x11-xserver-utils        # tweak X settings
+    - matchbox-window-manager  # window manager for resource-limited systems
+    - chromium                 # Google Chrome web browser
+

@@ -1,0 +1,13 @@
+---
+
+#
+# Ensures /etc/ax_raspbpliance dir exists and has
+# an "init" script, which is hooked into rc.local.
+#
+
+- include: _pkgs.yml
+
+- include: _initconfig.yml
+
+- include: _inithook.yml
+

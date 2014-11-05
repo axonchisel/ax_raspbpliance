@@ -1,0 +1,44 @@
+---
+
+#
+# Custom /boot/config.txt vars
+#
+# Note on param names:
+# /boot/config.txt params reflect here are prepended by 'boot_config_'.
+#
+
+
+# --------------------------
+# System
+
+# Low value for GPU memory split provides more system RAM
+boot_config_gpu_mem: 32
+
+
+# --------------------------
+# Overclocking
+
+# Mild overclock (over default 700) for slight boost
+boot_config_arm_freq: 800
+
+
+# --------------------------
+# Video config (defaults for 1024x768 LCD monitor)
+
+# Always pretend HDMI is connected
+boot_config_hdmi_force_hotplug: 1
+
+# Boost HDMI signal a bit to avoid pixel noise
+boot_config_config_hdmi_boost: 4
+
+# DVI mode
+boot_config_hdmi_drive: 1
+
+# DMT 1024x768 60Hz
+boot_config_hdmi_group: 2
+boot_config_hdmi_mode: 16
+
+# No lost border pixels to overscan
+boot_config_disable_overscan: 1
+
+

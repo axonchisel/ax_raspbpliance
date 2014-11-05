@@ -1,0 +1,29 @@
+---
+
+# Alter the installation so that the SD card operates in read-only mode.
+#
+# This orients the device for stable long term embedded use, allowing:
+#   - SHUTDOWN by pulling power without risk of SD card corruption.
+#   - RESTART to fix crashed state by simply power cycling.
+#
+# Downsides:
+#   1. Log files helpful for diagnostics are often lost since they're 
+#      either disabled or written to volatile storage.
+#   2. Updating the system requires an additional step to remount
+#      the filesystem temporarily in read/write mode:
+#        $ sudo mount -o remount,rw /
+#      And then once admin work is done, you MUST shutdown safely:
+#        $ sudo halt
+#      Upon power restoration, system will be read-only again.
+# 
+#
+
+
+- include: _logging.yml
+
+- include: _swapfile.yml
+
+- include: _user.yml
+
+- include: _fstab.yml
+

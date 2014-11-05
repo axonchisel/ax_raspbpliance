@@ -1,0 +1,85 @@
+---
+
+#
+# Example 'myvars.yml' file, for use with -e option to ansible-playbook.
+#
+# The -e (or --extra-vars) command-line param supports passing additional
+# variables at execution time.  When used with "@" symbol prefix, a
+# YML file can be specified such as this one.
+# 
+# Our playbook doesn't technically require any custom variables defined,
+# as they all have defaults.  But you probably don't want the defaults.
+# There are many ways to specify values to Ansible.
+# Using a vars file like this is one of the most convenient.
+#
+# Usage - Copy this file, edit it, and invoke ansible-playbook like:
+#
+#     ansible-playbook plays/ax_raspbpliance.yml -e "@myvars.yml"
+#
+# Not all variables in the project are listed in this file -- just common ones.
+# But all of these variables listed here ARE defined elsewhere in the project.
+# Look for their source for more information on each of them.
+#
+
+
+
+# ----------------------------------------------------------------------------
+# Web app
+#
+
+# URL to launch on startup
+app_url: http://www.google.com/
+
+
+
+# ----------------------------------------------------------------------------
+# Wifi configuration
+#
+
+# wifi_ssid: access point name
+wifi_ssid: My SSID Name
+
+# wifi_password: access point WPA password
+wifi_password: My Password
+
+
+
+# ----------------------------------------------------------------------------
+# Raspberry Pi connection
+#
+
+# Uncomment and change this if desired.
+# There are many ways to specify ansible_ssh_host, including cmdline e.g.:
+#   -e 'ansible_ssh_post=192.168.1.85'
+#ansible_ssh_host=raspberrypi
+
+
+
+# ----------------------------------------------------------------------------
+# Overclocking
+
+# boot_config_arm_freq: Overclock CPU (over default 700) (CAUTION)
+#boot_config_arm_freq: 800
+
+
+
+# ----------------------------------------------------------------------------
+# Video config (defaults for 1024x768 LCD monitor)
+
+# Always pretend HDMI is connected
+#boot_config_hdmi_force_hotplug: 1
+
+# Boost HDMI signal a bit to avoid pixel noise
+#boot_config_config_hdmi_boost: 4
+
+# DVI mode
+#boot_config_hdmi_drive: 1
+
+# DMT 1024x768 60Hz
+#boot_config_hdmi_group: 2
+#boot_config_hdmi_mode: 16
+
+# No lost border pixels to overscan
+#boot_config_disable_overscan: 1
+
+

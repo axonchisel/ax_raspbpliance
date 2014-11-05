@@ -1,0 +1,19 @@
+
+#
+# Update apt package cache and upgrade system to latest version.
+#
+# May take 10+ minutes with no feedback. Be patient.
+#
+# In the future, for quick system updates, run appliance playbook with:
+#   --tags=pkg_update
+#
+
+# ------------------------------------------------------------------------
+# Update apt package cache and upgrade system
+#
+
+- name: Update APT package cache (can take many minutes)
+  apt: update_cache=yes cache_valid_time=3600
+
+- name: Run apt-get upgrade (can take many minutes)
+  apt: upgrade=full

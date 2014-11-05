@@ -1,0 +1,25 @@
+#!/bin/sh
+
+#
+# xinitrc for kiosk mode.
+# (from Ax_Raspbpliance)
+#
+
+# X settings:
+
+xset -dpms      # disable DPMS (Energy Star) features
+xset s off      # disable screen saver
+xset s noblank  # don't blank the video device
+
+
+# Spawn unclutter (hide cursor) and basic matchbox window manager:
+
+unclutter &
+matchbox-window-manager &
+
+
+# Launch kiosk mode web browser on app URL:
+
+while true; do
+  chromium --kiosk "{{ app_url }}"
+done

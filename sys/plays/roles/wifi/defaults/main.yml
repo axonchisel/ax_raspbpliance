@@ -1,0 +1,42 @@
+---
+
+#
+# Customizable wifi settings
+#
+
+
+# ----------------------------------------------------------------------------
+# Wifi configuration
+#
+
+# wifi_setup: True/False to setup wifi or not
+wifi_setup: True
+
+
+# wifi_adapter: device name for wifi adapter, usually 'wlan0'
+wifi_adapter: wlan0
+
+
+# ----------------------------------------------------------------------------
+# Wifi access
+#
+
+# wifi_ssid and wifi_password identify the WPA encrypted access point.
+#
+# You may provide values for vars 'wifi_ssid' and 'wifi_password'
+# in other forms, e.g. from command line:
+#   $ ansible-playbook ... --extra-vars 'wifi_ssid="MySSID" wifi_password="MyPassword"'
+#
+#  Or skip wifi setup with 
+#   $ ansible-playbook ... --extra-vars 'wifi_setup=False'
+#
+#  Or keep your own vars in a file like myvars.yml (see eg-myvars.yml) and:
+#   $ ansible-playbook ... --extra-vars '@myvars.yml'
+
+
+# wifi_ssid: access point name
+wifi_ssid:
+
+
+# wifi_password: access point WPA password
+wifi_password:

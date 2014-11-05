@@ -1,0 +1,48 @@
+---
+
+#
+# Internal playbook for Ax_Raspbpliance, not intended for direct use.
+# Use ax_raspbpliance.yml playbook, which invokes this.
+#
+
+- name: Ax_Raspbpliance Main
+
+  hosts: newraspis
+
+  gather_facts: yes
+
+  sudo: yes
+
+  roles:
+
+    # Make system a bit more friendly to work with
+    - role: friendly
+      tags: friendly
+
+    # Configure /boot/config settings
+    - role: boot_config
+      tags: boot_config
+
+    # Configure Wifi adapter
+    - role: wifi
+      tags: wifi
+
+    # Update all system packages
+    - role: pkg_update
+      tags: pkg_update
+
+    # Update Raspi firmware (stored on SD card)
+    - role: firmware_update
+      tags: firmware_update
+
+    # Remove bloated unwanted packages
+    - role: pkg_depig
+      tags: pkg_depig
+
+    # Setup system to launch appliance mode automatically
+    - role: autoexec
+      tags: autoexec
+
+    # Make all mounts read-only and tweak system to operate in this manner
+    - role: readonly
+      tags: readonly

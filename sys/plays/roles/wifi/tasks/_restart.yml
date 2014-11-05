@@ -1,0 +1,23 @@
+---
+
+# ------------------------------------------------------------------------
+# Restart and test server after wifi setup complete
+#
+
+- name: REBOOTING. UNPLUG RASPI ETHERNET CABLE NOW.
+  debug: msg="Unplug ethernet now and continue setup over Wifi after restart."
+
+- name: Reboot. UNPLUG RASPI ETHERNET CABLE NOW.
+  command: shutdown -r now "Ansible triggered reboot after Wifi config"
+
+- name: Waiting for Raspberry Pi to come online...
+  local_action:
+    module: wait_for
+      delay=30
+      host={{ hostvars[inventory_hostname]['ansible_ssh_host'] }}
+      port=22
+      timeout=300
+  sudo: False
+
+- name: Ping Raspberry Pi (Wifi only from now one)
+  ping:

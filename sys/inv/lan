@@ -1,0 +1,21 @@
+#
+# Inventory for LAN with newly flashed Raspberry Pi.
+#
+
+#
+# Command and control during setup process via localhost.
+# Implicit reflection of Ansible script runner.
+#
+
+[control]
+control1     ansible_ssh_host=localhost
+
+
+#
+# Pi should register as 'raspberrypi' along with its DHCP lease.
+# If other name/addr desired, you may specify in alternate inventory,
+# in host vars, or on command line as extra-vars.
+#
+
+[newraspis]
+newraspi1    ansible_ssh_host=raspberrypi

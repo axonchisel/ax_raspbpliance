@@ -1,0 +1,47 @@
+---
+
+# ----------------------------------------------------------------------------
+# Ansible config:
+#
+
+
+#
+# Authenticate to Raspberry Pis as the default Raspbian 'pi' user.
+#
+
+ansible_ssh_user: pi
+
+
+#
+# Disable host_key_checking so ssh doesn't get caught up in changing keys.
+#
+
+host_key_checking: False
+
+
+
+
+
+# ----------------------------------------------------------------------------
+# Custom vars:
+#
+
+
+
+#
+# Primary user (writeable temp home)
+#
+
+#
+# Path for temp users' home dirs
+#
+
+temp_home: /thome     
+
+
+#
+# Username for new primary temp user
+#
+
+temp_user: tempo      
+

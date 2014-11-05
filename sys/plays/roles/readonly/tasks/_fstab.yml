@@ -1,0 +1,21 @@
+---
+
+# ------------------------------------------------------------------------
+# Update disk mounts to be read-only.
+#
+
+- name: Upload read-only + tmpfs new /etc/fstab (backing up existing)
+  template:
+    dest:   /etc/fstab
+    src:    etc-fstab.j2
+    owner:  root
+    group:  root
+    mode:   0644
+    backup: yes
+
+- name: Update GPU /boot/config.txt to mount root read-only
+  command: >
+    sed -ie 's#root=/dev/\(\S*\) #root=/dev/\1 ro #' /boot/cmdline.txt
+
+
+

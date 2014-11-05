@@ -1,0 +1,12 @@
+---
+
+# ------------------------------------------------------------------------
+# Disable swapfile
+#
+
+- name: Uninstall dphys-swapfile to prevent swapfile use
+  apt: state=absent purge=yes name=dphys-swapfile 
+
+- name: Remove existing swapfile
+  file: state=absent path=/var/swap
+

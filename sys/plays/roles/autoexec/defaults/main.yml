@@ -1,0 +1,16 @@
+---
+
+#
+# Customizable autoexec settings
+#
+
+
+# ----------------------------------------------------------------------------
+# Web app
+#
+
+#
+# URL to launch on startup
+#
+
+app_url: http://www.google.com/

@@ -1,0 +1,41 @@
+#
+# /boot/config.txt
+#
+
+#
+# References:
+#   - http://elinux.org/RPiconfig
+#   - http://elinux.org/R-Pi_ConfigurationFile
+#   - http://www.raspberrypi.org/documentation/configuration/config-txt.md
+#
+
+
+# ----------------------------------------------------------------------------
+# System
+#
+
+gpu_mem={{ boot_config_gpu_mem }}
+
+
+# ----------------------------------------------------------------------------
+# Overclocking
+#
+
+arm_freq={{ boot_config_arm_freq }}
+
+
+# ----------------------------------------------------------------------------
+# Video config
+#
+
+hdmi_force_hotplug={{ boot_config_hdmi_force_hotplug }}
+
+config_hdmi_boost={{ boot_config_config_hdmi_boost }}
+
+hdmi_drive={{ boot_config_hdmi_drive }}
+
+hdmi_group={{ boot_config_hdmi_group }}
+hdmi_mode={{ boot_config_hdmi_mode }}
+
+disable_overscan={{ boot_config_disable_overscan }}
+

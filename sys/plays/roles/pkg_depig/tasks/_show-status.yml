@@ -1,0 +1,19 @@
+---
+
+# ------------------------------------------------------------------------
+# Log status of disk space and dpigs
+#
+
+- name: "{{ show_when }} - Invoke dpigs to identify largest installed packages"
+  command: dpigs
+  register: dpigs
+  changed_when: False
+- name: "{{ show_when }} - Show dpigs size (B) of largest installed packages"
+  debug: var=dpigs.stdout_lines
+
+- name: "{{ show_when }} - Invoke df to check disk usage"
+  command: df -m
+  register: df
+  changed_when: False
+- name: "{{ show_when }} - Show df disk usage stats (MB)"
+  debug: var=df.stdout_lines

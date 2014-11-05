@@ -1,0 +1,27 @@
+---
+
+#
+# Ensures /etc/ax_raspbpliance dir exists and has
+# an "init" script (to be hooked into rc.local) that starts X
+# using custom initrc.
+#
+
+- name: Ensure /etc/ax_raspbpliance dir exists
+  file: path=/etc/ax_raspbpliance state=directory mode=0655
+
+- name: Upload custom /etc/ax_raspbpliance/kiosk.initrc
+  template:
+    dest: /etc/ax_raspbpliance/kiosk.xinitrc
+    src:   etc-ax_raspbpliance-kiosk.xinitrc.j2
+    owner: root
+    group: root
+    mode:  0755
+
+- name: Upload custom /etc/ax_raspbpliance/init
+  template:
+    dest: /etc/ax_raspbpliance/init
+    src:   etc-ax_raspbpliance-init.j2
+    owner: root
+    group: root
+    mode:  0755
+

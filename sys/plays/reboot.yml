@@ -1,0 +1,19 @@
+---
+
+#
+# Reboot Pi.
+#
+
+- name: Reboot
+
+  hosts: newraspis
+
+  gather_facts: no
+
+  sudo: yes
+
+  tasks:
+
+    - name: Rebooting.
+      command: shutdown -r now "Ansible triggered reboot on demand"
+

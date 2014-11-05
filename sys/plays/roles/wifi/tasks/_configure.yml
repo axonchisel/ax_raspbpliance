@@ -1,0 +1,14 @@
+---
+
+# ------------------------------------------------------------------------
+# Set up networking
+#
+
+- name: Fill out and upload /etc/network/interfaces
+  when: wifi_setup|bool
+  template:
+    dest: /etc/network/interfaces
+    src: etc-network-interfaces.j2
+    owner: root
+    group: root
+    mode: 0600  # hide from go since it will contain WiFi password now

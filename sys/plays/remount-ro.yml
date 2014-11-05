@@ -1,0 +1,28 @@
+---
+
+#
+# Remount Pi root and boot filesystem as read-only.
+#
+# Pass optional tags 'root', 'boot' to narrow scope of actions.
+#
+# Assumes proper setup has already been done.
+#
+
+- name: Remount Read-Only
+
+  hosts: newraspis
+
+  gather_facts: no
+
+  sudo: yes
+
+  tasks:
+
+    - name: Remount root (/) as read-only
+      tags: root
+      command: mount -o remount,ro /
+
+    - name: Remount boot (/boot) as read-only
+      tags: boot
+      command: mount -o remount,ro /boot
+

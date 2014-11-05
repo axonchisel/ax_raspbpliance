@@ -1,0 +1,15 @@
+#
+# /etc/network/interfaces
+# 
+
+auto lo
+iface lo inet loopback
+
+iface eth0 inet dhcp
+ 
+allow-hotplug {{ wifi_adapter }}
+auto {{ wifi_adapter }}
+iface {{ wifi_adapter }} inet dhcp
+    wpa-ssid "{{ wifi_ssid }}"
+    wpa-psk "{{ wifi_password }}"
+

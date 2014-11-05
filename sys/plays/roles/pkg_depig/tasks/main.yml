@@ -1,0 +1,31 @@
+---
+
+#
+# Strip down Raspbian installation, eliminating big unused packages.
+#
+
+
+# ------------------------------------------------------------------------
+# Init and show initial status
+#
+
+- include: _show-status.yml show_when=BEFORE
+
+
+# ------------------------------------------------------------------------
+# Remove large default packages (defined in vars)
+#
+
+- name: About to remove unwanted packages
+  debug: var=remove_packages
+
+- name: Uninstall and remove unwanted 500 MB+ big packages
+  apt: state=absent purge=yes name={{ item }}
+  with_items: remove_packages
+
+
+# ------------------------------------------------------------------------
+# Final status
+#
+
+- include: _show-status.yml show_when=AFTER

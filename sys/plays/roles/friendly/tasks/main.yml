@@ -1,0 +1,16 @@
+---
+
+#
+# Make system a bit more friendly to work with.
+#
+
+- name: Ensure small pkg debian-goodies is installed (incl dpigs)
+  apt: state=present name=debian-goodies
+
+- name: Add 'll' bash alias
+  lineinfile:
+    state: present
+    backup: yes
+    dest: /etc/bash.bashrc
+    regexp: "^alias ll='ls -lF'$"
+    line:    "alias ll='ls -lF'"

@@ -1,0 +1,18 @@
+---
+
+#
+# Update Rasperry Pi firmware (stored on SD card boot partition).
+# May take 10+ minutes with no feedback. Be patient.
+#
+# In the future, for quick firmware updates, run appliance playbook with:
+#   --tags=firmware_update
+#
+
+# ------------------------------------------------------------------------
+# Update Raspberry Pi firmware
+#
+
+- name: Update Raspberry Pi firmware (can take many minutes)
+  command: rpi-update
+
+

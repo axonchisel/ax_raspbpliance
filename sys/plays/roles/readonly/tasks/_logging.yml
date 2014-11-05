@@ -1,0 +1,8 @@
+---
+
+# ------------------------------------------------------------------------
+# Disable log writing daemons
+#
+
+- name: Disable syslog
+  service: enabled=no name=rsyslog

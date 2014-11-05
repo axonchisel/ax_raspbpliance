@@ -1,0 +1,23 @@
+---
+
+# ------------------------------------------------------------------------
+# Check and validate settings
+
+- name: Check for valid wifi_ssid
+  when: wifi_setup|bool and ((wifi_ssid|default == "") or (wifi_ssid is none))
+  fail:
+    msg: |
+
+      Wifi setup enabled (wifi_setup=True), but no wifi_ssid set.
+      Review vars file for more info. ansible-playbook options:
+        -e 'wifi_setup=False'
+        -e 'wifi_ssid="My Access Point" wifi_password="mypassword"'
+
+- name: Determined wifi setup plan from vars
+  when: wifi_setup
+  debug:
+    msg: >
+      wifi_setup: {{ wifi_setup }}.
+      wifi_ssid: '{{ wifi_ssid }}'.
+      wifi_pass: ?
+

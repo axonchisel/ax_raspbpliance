@@ -1,0 +1,18 @@
+---
+
+#
+# List of large unwanted packages to remove.
+# Note: The 'debian-goodies' package provides 'dpigs' utility which is 
+# useful to see which packages are consuming the most disk space.
+#
+
+remove_packages:
+  - oracle-java7-jdk  # Java
+  - oracle-java8-jdk  # Java
+  - wolfram-engine    # Wolfram engine
+  - scratch           # Scratch programming language
+  - smbclient         # Samba file sharing client
+  - samba-common      # Common Samba components
+  - sonic-pi          # Musical programming environment
+  - freepats          # Music MIDI patch set
+

@@ -1,0 +1,30 @@
+---
+
+#
+# Set up Ax_Raspbpliance mode on newly flashed Raspberry Pi.
+#
+# Assumes new Pi is network accessible and pre-seeded with local
+# user's SSH key, such as with ssh-copy-id.  (See setup instructions)
+#
+
+- name: Ax_Raspbpliance Intro
+  hosts: newraspis
+  gather_facts: no
+  tasks:
+    - name: Welcome to Ax_Raspbpliance Raspberry Pi Appliance Setup
+      debug:
+        msg: >
+          NOTICE: Did you ssh-copy-id your keys yet?  Is your Pi reachable? 
+          Please review README.md for detailed installation instructions.
+
+
+- include: _ax_raspbpliance-main.yml
+
+
+- name: Ax_Raspbpliance Outro
+  hosts: newraspis
+  gather_facts: no
+  sudo: yes
+  tasks:
+    - name: Ax_Raspbpliance setup done. Rebooting.
+      command: shutdown -r now "Ansible triggered reboot after setup complete"

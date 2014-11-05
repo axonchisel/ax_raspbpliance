@@ -1,0 +1,26 @@
+---
+
+#
+# Configure Raspberry Pi Wifi adapter.
+#
+# Typically done in initial stages when new Pi is connected via ethernet.
+#
+# If wifi setup is requested via wifi_setup bool var,
+# then it uses vars wifi_ssid and wifi_password to configure
+# presumed WPA2 Wifi network by uploading new
+# /etc/network/interfaces file.
+#
+# NOTE: 
+# The manner in which we configure Wifi on Raspbian here 
+# (writing a few lines into /etc/network/interfaces) is *probably* not 
+# the right way.  It does seem to work, but it results in various
+# boot time errors, possible packet loss, and possibly other problems.
+# This playbook should be revisited by heads more intimately familiar
+# with Linux networking and WPA Supplicants (which we ignore here).
+#
+
+- include: _verify.yml
+
+- include: _configure.yml
+
+- include: _restart.yml

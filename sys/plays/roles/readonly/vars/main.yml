@@ -1,0 +1,12 @@
+---
+
+
+#
+# Device names (in /dev/) for boot and root on SD card
+#
+# TODO: Auto-detect NOOBS instead of requiring hardcode
+#
+
+dboot: mmcblk0p5      # p5 for NOOBS, p1 (?) for non-NOOBS
+droot: mmcblk0p6      # p6 for NOOBS, p2 (?) for non-NOOBS
+

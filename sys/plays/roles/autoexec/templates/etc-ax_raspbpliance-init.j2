@@ -1,0 +1,13 @@
+#
+# Ax_Raspbpliance autoexec file run at system startup
+#
+# (Typically hooked into rc.local)
+#
+
+# Create temp home for tempo user:
+mkdir -p /{{ temp_home }}/{{ temp_user }}
+chown {{ temp_user }}:{{ temp_user }} /{{ temp_home }}/{{ temp_user }}
+
+# Run X in kiosk mode as tempo user:
+su -l {{ temp_user }} -c 'xinit /etc/ax_raspbpliance/kiosk.xinitrc' &
+

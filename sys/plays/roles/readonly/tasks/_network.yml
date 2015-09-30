@@ -1,0 +1,12 @@
+---
+
+# ------------------------------------------------------------------------
+# Allow dynamic network files to work
+#
+
+- name: Symlink dynamic DNS resolution config (managed by resolvconf) to temp
+  file: src=/tmp/etc-resolv.conf dest=/etc/resolv.conf state=link force=yes
+
+- name: Symlink network config to user-editable version on /boot
+  file: src=/boot/ax_raspbpliance/network-interfaces dest=/etc/network/interfaces state=link force=yes
+

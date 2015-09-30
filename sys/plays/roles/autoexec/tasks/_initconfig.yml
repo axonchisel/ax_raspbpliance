@@ -25,3 +25,13 @@
     group: root
     mode:  0755
 
+- name: Remount boot (/boot) as read-write
+  command: mount -o remount,rw /boot
+
+- name: Ensure user-editable /boot/ax_raspbpliance dir exists
+  file: path=/boot/ax_raspbpliance state=directory mode=0655
+
+- name: Create user-editable /boot/ax_raspbpliance URL config
+  template:
+    dest: /boot/ax_raspbpliance/url.txt
+    src:   boot-ax_raspbpliance-url.txt.j2

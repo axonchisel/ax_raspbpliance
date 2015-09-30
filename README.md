@@ -1,7 +1,7 @@
 
 # Ax_Raspbpliance - Raspberry Pi Raspbian Web-Based Appliance Ansible Playbook
 
-v0.8 - 2014-11
+v0.9 - 2015-10
 
 
 ## Project Overview
@@ -33,8 +33,8 @@ v0.8 - 2014-11
 
 ## Project Status
 
-  - 2014-11 - working beta, tested on RPi B+.
-  - More work planned including non-NOOBS support, Chrome browser tweaks, ...
+  - 2015-10 - final beta, tested on all major device including latest RPi 2 B.
+  - Possible updates including Chrome browser tweaks, ...
 
 *See a list here of [planned upcoming work](./docs/todo.md).*
 
@@ -76,7 +76,7 @@ These generic steps should take 1 - 10 minutes depending on your familiarity, ex
 
 ### Unattended Ax_Raspbpliance Process
 
-Here's where the magic starts. Expect about 10 - 20 minutes while the Pi is automatically configured.
+Here's where the magic starts. Expect about 10 - 20 minutes while the Pi is automatically updated and configured.
 
   1. Make sure you've **installed Ansible** on your control machine.
 
@@ -89,7 +89,7 @@ Here's where the magic starts. Expect about 10 - 20 minutes while the Pi is auto
   3. Copy the `myvars-example.yml` file to `myvars.yml` and **customize vars** with:
     - wifi connection info
     - URL you want the Pi to start on
-    - optional settings for graphics mode, overclocking, ...
+    - optional settings for graphics mode (default HDMI 1080p, no overscan), overclocking (default off), ...
 
   4. **Run the playbook** from your control machine:
 
@@ -100,31 +100,66 @@ Here's where the magic starts. Expect about 10 - 20 minutes while the Pi is auto
         $ ansible-playbook plays/ax_raspbpliance.yml -e "@myvars.yml" \
                                                      -e 'ansible_ssh_host=192.168.1.99'
 
-  5. **Wait** approximately 10 - 20 minutes while your Pi is completely configured remotely!
+  5. **Wait** a minute or so until you are asked to unplug the ethernet cable while the Pi reboots and continues.  Now that wifi is enabled, the Pi may start up with a different IP address, in which case you'll need to simply CTRL-C and re-run the playbook with the new IP address.  (You may also need to clear any old entries for this new address in your `~/.ssh/known_hosts` file.)
+
+  6. **Wait** approximately 10-20 minutes more while your Pi is completely upgraded and configured remotely.
 
 
 ### Result
 
-Upon completion your Raspberry Pi will be configured to start up and automatically connect to the wifi network and launch the web page you specified in a full screen kiosk-mode modern browser, and to support safely disconnecting power at any time without "shutting down"...  A web-based appliance!
+Upon completion your Raspberry Pi will be up to date, locked down, and configured to start up, automatically connect to the wifi network, and launch the web page you specified, all in a full screen kiosk-mode modern browser, and to support safely disconnecting power at any time without "shutting down"...  A web-based appliance!
 
 *Review here a more [detailed technical deep dive into actual changes](./docs/details.md).*
+
+*Review here an [overview of security precaustions and vulnerabilities](./docs/security.md).*
+
+
+### Post-Install Configuration
+
+Several common points of configuration are accessible via the FAT-formatted `/boot` partition on the SD card, allowing you to adjust them easily from any other computer with an SD card reader.  These files are:
+
+- `/boot/ax_raspbpliance/url.txt` - contains the URL that is launched on startup.
+- `/boot/ax_raspbpliance/network-interfaces` - contains the WiFi/network configuration including SSID and password.
+
+If you need to log in to the Pi for any reason, the only way will be via SSH using the SSH key(s) you originally provided.
+
+
 
 ## Compatibility
 
 Ax_Raspbpliance has been tested and found compatible with:
 
   - Raspberry Pi models
-  	- A
-  	- B+
+  	- A (likely requires downsizing some fstab RAM disk sizes)
+  	- B+ (may require downsizing some fstab RAM disk sizes)
+    - 2 B (recommended target platform)
   - Raspbian Linux versions
-  	- Raspbian 7 (wheezy) (~2014)
+    - Raspbian 7.8 (wheezy) (~2015)
   - NOOBS versions
   	- NOOBS 1.3.10 (~2014)
   - Ansible versions
-  	- Ansible 1.7.2 (~2014)
+    - Ansible 1.8.2 (~2015)
+
+
+## History
+
+
+### Version 0.9 (2015-10)
+
+  - Add support for pure Raspbian (no NOOBS required).
+  - Allow post-install config (network, URL) via files in FAT partition of SD card.
+  - Improve security.
+  - More documentation.
+  - Better defaults.
+  - Misc bug fixes and cleanup.
+
+### Version 0.8 (2014-11)
+
+  - Initial version.
+
 
 
 
 ------------------------------------------------------------------------------
 
-Ax_Raspbpliance - Copyright (c) 2014 AxonChisel.net
+Ax_Raspbpliance - Copyright (c) 2015 AxonChisel.net

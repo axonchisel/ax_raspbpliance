@@ -15,6 +15,10 @@
 
   roles:
 
+    # Lock down system
+    - role: security
+      tags: security
+
     # Make system a bit more friendly to work with
     - role: friendly
       tags: friendly

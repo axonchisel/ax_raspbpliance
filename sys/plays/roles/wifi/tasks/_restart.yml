@@ -14,7 +14,7 @@
   local_action:
     module: wait_for
       delay=30
-      host={{ hostvars[inventory_hostname]['ansible_ssh_host'] }}
+      host={{ ansible_ssh_host }}
       port=22
       timeout=300
   sudo: False

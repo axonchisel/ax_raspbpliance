@@ -5,13 +5,16 @@
 #
 # The /boot/config.txt acts similar to BIOS config for the Pi
 # GPU boot process.
-# Here we replace it with one with optiosn we like.
+# Here we replace it with one with options we like.
 #
 # References:
 #   - http://elinux.org/RPiconfig
 #   - http://elinux.org/R-Pi_ConfigurationFile
 #   - http://www.raspberrypi.org/documentation/configuration/config-txt.md
 #
+
+- name: Remount boot (/boot) as read-write
+  command: mount -o remount,rw /boot
 
 - name: Fill out and upload /boot/config.txt
   template:

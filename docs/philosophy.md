@@ -8,11 +8,6 @@
 
   - formalize and automate a process for creating a Raspberry Pi web-based "appliance"
 
-### Project Status
-
-  - 2014-11 - working alpha, tested on RPi B+.
-  - Needs more work including non-NOOBS support (see [TODO](./todo.md))
-
 
 ### What is an "Appliance"?
 
@@ -48,7 +43,7 @@ This greatly simplifies and accelerates the setup process, resulting in a tested
 
 Rather than providing an out-of-the-box appliance distribution that can be installed directly, we choose to provide a reproducible computer and human friendly version controlled series of steps that can take an existing distribution and convert is accordingly. 
 
-Our approach works with many variants of Raspbian, likely including ones not yet released, and ensures that end users know exactly what they're getting without having to wade through hundreds of megabytes of unknown content.
+We do this for the sake of compatibility, future-proofing, and trust:  Our approach works with many variants of Raspbian, likely including ones not yet released, and ensures that end users can start with known trusted distros and know exactly what they're getting without having to wade through hundreds of megabytes of unknown content.
 
 But these choices also do not preclude release of appliance distributions, as such could be created easily with these scripts!  (And you are welcome to do so as long as you give credit and retain copyright notices, as we release these scripts under the liberal MIT license).
 
@@ -62,4 +57,4 @@ But these choices also do not preclude release of appliance distributions, as su
     
 ------------------------------------------------------------------------------
 
-Ax_Raspbpliance - Copyright (c) 2014 AxonChisel.net
+Ax_Raspbpliance - Copyright (c) 2015 AxonChisel.net

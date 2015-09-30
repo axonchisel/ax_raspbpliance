@@ -14,7 +14,7 @@ You want stock Raspbian running on your Pi.  You have two choices for your SD ca
   - [Install Raspbian directly](http://www.raspberrypi.org/documentation/installation/installing-images/README.md):
 
     - more technical to install (must write disk image directly to SD card)
-    - slightly faster boot
+    - much faster boot
     - more difficult for users to damage system by accessing NOOBS recovery
 
 
@@ -62,4 +62,4 @@ We haven't done any customization yet, but we're about to!
 
 ------------------------------------------------------------------------------
 
-Ax_Raspbpliance - Copyright (c) 2014 AxonChisel.net
+Ax_Raspbpliance - Copyright (c) 2015 AxonChisel.net

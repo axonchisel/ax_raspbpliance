@@ -6,6 +6,7 @@
 
 You are welcome to dig into the code of Ax_Raspbpliance, fork us on github, and submit issues and patches.
 
+Our home:  https://github.com/axonchisel/ax_raspbpliance
 
 
 ## Notes
@@ -31,4 +32,4 @@ The commands listed here can be useful while debugging and developping this proj
 
 ------------------------------------------------------------------------------
 
-Ax_Raspbpliance - Copyright (c) 2014 AxonChisel.net
+Ax_Raspbpliance - Copyright (c) 2015 AxonChisel.net

@@ -9,8 +9,6 @@
 
 - name: Add 'll' bash alias
   lineinfile:
-    state: present
-    backup: yes
     dest: /etc/bash.bashrc
     regexp: "^alias ll='ls -lF'$"
     line:    "alias ll='ls -lF'"

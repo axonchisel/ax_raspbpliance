@@ -14,6 +14,7 @@ Along the way your target machine will be modified, including:
   - some new packages are installed
   - a user created and set to auto-run a kiosk mode browser on a specific URL
   - disk mounts set to read-only
+  - some config files symlinked to /tmp and /boot as appropriate
   - various subsystems disabled, including logging
   - areas requiring disk writes shifted to tmpfs RAM disks
 
@@ -30,13 +31,13 @@ There is now an additional user (default `tempo`) intended as primary applicatio
 Because the root file system is now read-only, the default `pi` user itself has a non-writeable home directory which will cause various problems (including not being able to startx).  You may log in as `pi` and `sudo su tempo` if you like.
 
 
-
 ### Other playbooks
 
 Several utility playbooks are available:
     
     $ ansible-playbook plays/ax_raspbpliance.yml
 
+    $ ansible-playbook plays/inspect.yml
     $ ansible-playbook plays/remount-rw.yml
     $ ansible-playbook plays/remount-ro.yml
     $ ansible-playbook plays/reboot.yml
@@ -56,5 +57,5 @@ The `ansible.cfg` file in the same directory as `RUN PLAYBOOKS FROM HERE.md` is 
     
 ------------------------------------------------------------------------------
 
-Ax_Raspbpliance - Copyright (c) 2014 AxonChisel.net
+Ax_Raspbpliance - Copyright (c) 2015 AxonChisel.net
 

@@ -1,6 +1,7 @@
-
+#
 # /etc/fstab for read-only Raspbian
-# 2014-11
+# (Provided by Ax_Raspbpliance)
+#
 
 
 # fs_spec    fs_file      fs_vfstype  fs_mntops                  fs_freq fs_passno
@@ -8,8 +9,8 @@
 
 # System:
 proc            /proc       proc      defaults                         0 0
-/dev/{{dboot}}  /boot       vfat      defaults,noatime,ro              0 2
-/dev/{{droot}}  /           ext4      defaults,noatime,ro              0 1
+{{dev_boot}}    /boot       vfat      defaults,noatime,ro              0 2
+{{dev_root}}    /           ext4      defaults,noatime,ro              0 1
 
 # Ramify /var:
 tmpfs        /var/lock      tmpfs     defaults,noatime,nosuid,nodev,size=1M
@@ -18,9 +19,9 @@ tmpfs        /var/log       tmpfs     defaults,noatime,nosuid,nodev,size=16M
 tmpfs        /var/lib/dhcp  tmpfs     defaults,noatime,nosuid,nodev,size=64k
 
 # Temp:
-tmpfs        /tmp           tmpfs     defaults,noatime,nosuid,nodev,size=32M
-/tmp         /var/tmp       none      defaults,noatime,nosuid,nodev,size=32M
+tmpfs        /tmp           tmpfs     defaults,noatime,nosuid,nodev,size=64M
+/tmp         /var/tmp       none      defaults,noatime,nosuid,nodev,size=64M
 
 # Temp home:
-tmpfs        /thome         tmpfs     defaults,noatime,nosuid,nodev,size=16M
+tmpfs        /thome         tmpfs     defaults,noatime,nosuid,nodev,size=64M
 

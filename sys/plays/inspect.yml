@@ -1,0 +1,29 @@
+---
+
+#
+# Inspect target device, useful as test/ping.
+#
+
+- name: Inspect
+
+  hosts: newraspis
+
+  sudo: yes
+
+  tasks:
+
+    - name: Done
+      debug: msg="Inspected target device: {{ ansible_ssh_host }}"
+
+
+    - name: Waiting for Raspberry Pi to come online...
+      local_action:
+        module: wait_for
+          delay=30
+          host={{ ansible_ssh_host }}
+          port=22
+          timeout=300
+      sudo: False
+
+    - name: Ping Raspberry Pi (Wifi only from now one)
+      ping:

@@ -1,0 +1,15 @@
+---
+
+#
+# Lock down security.
+#
+
+- name: Disallow SSH password authentication
+  lineinfile:
+    dest: /etc/ssh/sshd_config
+    regexp: "^PasswordAuthentication"
+    line:    "PasswordAuthentication no"
+
+- name: Erase 'pi' user password to prevent login by password
+  command: passwd -d pi
+

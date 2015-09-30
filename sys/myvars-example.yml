@@ -67,19 +67,22 @@ wifi_password: My Password
 # Video config (defaults for 1024x768 LCD monitor)
 
 # Always pretend HDMI is connected
-#boot_config_hdmi_force_hotplug: 1
+boot_config_hdmi_force_hotplug: 1
 
 # Boost HDMI signal a bit to avoid pixel noise
-#boot_config_config_hdmi_boost: 4
+boot_config_config_hdmi_boost: 4
 
-# DVI mode
+# DVI DMT 1024x768 60Hz
 #boot_config_hdmi_drive: 1
-
-# DMT 1024x768 60Hz
 #boot_config_hdmi_group: 2
 #boot_config_hdmi_mode: 16
 
+# HDMI CEA 1080p 60Hz
+boot_config_hdmi_drive: 2
+boot_config_hdmi_group: 1
+boot_config_hdmi_mode: 16
+
 # No lost border pixels to overscan
-#boot_config_disable_overscan: 1
+boot_config_disable_overscan: 1
 
 

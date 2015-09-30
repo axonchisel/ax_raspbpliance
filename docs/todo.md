@@ -21,15 +21,9 @@ This is a work in progress.  Some open issues and notes are listed here.
   - There is a way to address this by using sed to rewrite a log file to make Chrome think it was OK.
 
 
+### Issue with 'none' file type from fstab
 
-### NOOBS
-
-  - For a true appliance we don't want NOOBS coming up and giving end users ability to reimage the disk.
-  - So adapt this playbook and test it out with a straight Raspbian install.
-  - But we want it to work with NOOBS too, so make sure it works on both ways (with NOOBS, without).
-  - Possibly use gathered facts re devices (presence of p5, p6?) to set_fact on using_noobs=True or False.
-  - Only difference should really be in fstab J2 which should handle both ways.
-
+  - Error message on boot re /var/tmp fstab mount: Unknown filesystem type 'none'
 
 
 
@@ -40,7 +34,11 @@ This is a work in progress.  Some open issues and notes are listed here.
 ### Security
 
   - firewall configuration
-  - disable SSH password logins
+
+
+### Automatic Reboots
+
+  - Optional configure to automatically restart daily at specific time.
 
 
 ### Background health checks
@@ -53,6 +51,13 @@ This is a work in progress.  Some open issues and notes are listed here.
   - Disable additional ttys in /etc/inittab?
   - Makes it diffficult to debug, so do by variable config (default disable them)
 
+### sysvinit vs. systemd
+
+As of 2015-10, Raspbian 7.8 is still based on the classic sysvinit startup system.  However there is a trend in Linux toward systemd, and it's likely that Raspbian will go this way soon.
+
+The main autoexec integration of Ax_Raspbpliance is via rc.local, and this will likely need to be revisited if and when systemd replaces sysvinit.  It's possible that simply hooking rc.local to execute on boot will be an easy fix.
+
+
 
 
 
@@ -63,4 +68,4 @@ This is a work in progress.  Some open issues and notes are listed here.
 
 ------------------------------------------------------------------------------
 
-Ax_Raspbpliance - Copyright (c) 2014 AxonChisel.net
+Ax_Raspbpliance - Copyright (c) 2015 AxonChisel.net

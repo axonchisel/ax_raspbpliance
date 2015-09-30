@@ -1,11 +1,11 @@
 ---
 
 # ------------------------------------------------------------------------
-# Create /thome temp home and new 'tempo' user
+# Create temp home and new temp user
 #
 
 - name: Ensure temp home dir ({{ temp_home }}) exists, for fstab mount
-  file: path=/thome state=directory
+  file: path={{ temp_home }} state=directory
 
 - name: Create new main temp_user user with writeable home on tmpfs
   user:

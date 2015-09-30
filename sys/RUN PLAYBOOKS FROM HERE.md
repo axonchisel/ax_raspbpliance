@@ -18,6 +18,7 @@
 
 ##### Run supplemental playbooks
 
+    $ ansible-playbook plays/inspect.yml
     $ ansible-playbook plays/remount-rw.yml
     $ ansible-playbook plays/remount-ro.yml
     $ ansible-playbook plays/reboot.yml
@@ -30,4 +31,4 @@
     
 ------------------------------------------------------------------------------
 
-Ax_Raspbpliance - Copyright (c) 2014 AxonChisel.net
+Ax_Raspbpliance - Copyright (c) 2015 AxonChisel.net

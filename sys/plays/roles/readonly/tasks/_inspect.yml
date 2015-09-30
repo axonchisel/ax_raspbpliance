@@ -1,0 +1,13 @@
+---
+
+# ------------------------------------------------------------------------
+# Inspect system to determine boot and root devices
+#
+
+- name: Detect boot device (e.g. "/dev/mmcblk0p1")
+  set_fact: dev_boot="{{ item.device }}"
+  with_items: ansible_mounts
+  when: item.mount == "/boot"
+
+- name: Detect root device (e.g. "/dev/mmcblk0p2")
+  set_fact: dev_root="{{ ansible_cmdline.root }}"

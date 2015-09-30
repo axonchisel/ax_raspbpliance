@@ -19,9 +19,13 @@
 #
 
 
+- include: _inspect.yml
+
 - include: _logging.yml
 
 - include: _swapfile.yml
+
+- include: _network.yml
 
 - include: _user.yml
 

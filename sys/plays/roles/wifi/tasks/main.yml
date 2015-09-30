@@ -10,6 +10,11 @@
 # presumed WPA2 Wifi network by uploading new
 # /etc/network/interfaces file.
 #
+# We assume the Wifi adapter is supported by existing drivers, as are
+# many common adapters such as the Pi-recommended Edimax EW-7811Un.
+# If your Wifi adapter requires additional drivers, you must install
+# those before running this playbook!
+#
 # NOTE: 
 # The manner in which we configure Wifi on Raspbian here 
 # (writing a few lines into /etc/network/interfaces) is *probably* not 

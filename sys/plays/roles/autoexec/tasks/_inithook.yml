@@ -6,8 +6,6 @@
 
 - name: Hook our init script into rc.local
   lineinfile:
-    state: present
-    backup: yes
     dest: /etc/rc.local
     regexp: "^. /etc/ax_raspbpliance/init$"
     line:    ". /etc/ax_raspbpliance/init"
